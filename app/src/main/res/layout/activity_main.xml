@@ -16,14 +16,6 @@
         android:textStyle="bold"
          />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enter url you want to visit."
-        android:textSize="30sp"
-        android:layout_gravity="center"
-        android:id="@+id/etWeb"/>
-
 
     <Button
         android:layout_width="wrap_content"
@@ -35,6 +27,17 @@
         android:id="@+id/btnWeb"
         />
 
+  <!--  <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50sp"
+        android:hint="Enter number"
+        android:maxLength="10"
+        android:inputType="number"
+        android:layout_gravity="center"
+        android:textSize="50sp"
+        android:id="@+id/etPhonenUmber"/> -->
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,6 +46,16 @@
         android:layout_marginTop="20sp"
         android:layout_gravity="center"
         android:id="@+id/btnSMS"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50sp"
+        android:text="Call"
+        android:layout_marginTop="20sp"
+        android:layout_gravity="center"
+        android:id="@+id/btnCall"
         />
 
 </LinearLayout>

@@ -8,47 +8,39 @@ import android.os.Bundle
 import android.os.IBinder.DeathRecipient
 import android.widget.Button
 import android.widget.EditText
+import kotlin.properties.Delegates
 
 class MainActivity : AppCompatActivity() {
     var btnWeb : Button ?= null
     var btnSMS : Button ?= null
-    var etWeb : EditText ?= null
+    var btnCall : Button ?= null
+    //var etPhoneNumber : EditText ?= null
+    var phoneNumber = "0000000000"
     //var link : String ?= ""
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         btnWeb = findViewById(R.id.btnWeb)
-        etWeb = findViewById(R.id.etWeb)
+        btnSMS = findViewById(R.id.btnSMS)
+        btnCall = findViewById(R.id.btnCall)
+        //etPhoneNumber = findViewById(R.id.etPhonenUmber)
         btnWeb?.setOnClickListener {
-            //link = etWeb.toString()
-            var intent = Intent(Intent.ACTION_VIEW)
+            val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("https://google.com")
             startActivity(intent)
         }
-
-
-
-
-
-
         btnSMS?.setOnClickListener {
-            /* val recipient = "9501676401"
-            val message = "Hello"
-                sendSMS(recipient, message)
-
-            fun sendSMS(recipient: String, message: String) {
-                val smsUri = Uri.parse("smsto : $recipient")
-                val smsIntent = Intent(Intent.ACTION_SENDTO, smsUri)
-                smsIntent.putExtra("sms_body", message)
-                startActivity(smsIntent)
-            } */
+           // phoneNumberFromUser= etPhoneNumber.toString()
+           val intent = Intent(Intent.ACTION_SENDTO)
+                intent.data = Uri.parse("sms:$phoneNumber")
+                startActivity(intent)
+        }
+        btnCall?.setOnClickListener {
+            //phoneNumberFromUser= etPhoneNumber.toString()
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:$phoneNumber")
+            startActivity(intent)
         }
     }
-    /* private fun sendSMS(recipient: String, message: String) {
-        val smsUri = Uri.parse("smsto : $recipient")
-        val smsIntent = Intent(Intent.ACTION_SENDTO, smsUri)
-        smsIntent.putExtra("sms_body", message)
-        startActivity(smsIntent)
-    } */
 }
